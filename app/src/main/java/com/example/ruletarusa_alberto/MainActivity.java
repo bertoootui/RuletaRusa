@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         ImageButton bullet = findViewById(R.id.imageButton2);
         Button butbullet = findViewById(R.id.butbullet);
         ImageView cargador = findViewById(R.id.giftambor);
+        ImageView disparo = findViewById(R.id.gifbang);
+        ImageView bullet1 = findViewById(R.id.imgbullet1);
+        ImageView bullet2 = findViewById(R.id.imgbullet2);
+        ImageView bullet3 = findViewById(R.id.imgbullet3);
         Button butready = findViewById(R.id.butready);
         butready.setClickable(false);
         bullet.setX(100);
@@ -76,6 +80,15 @@ public class MainActivity extends AppCompatActivity {
                         animator.start();
                         //esperar(bullet);
                         countb++;
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                if(countb == 1) bullet1.setVisibility(View.VISIBLE);
+                                else if(countb ==2) bullet2.setVisibility(View.VISIBLE);
+                                else bullet3.setVisibility(View.VISIBLE);
+                            }
+                        }, 500);   //5 second
+
                     }//end if
                 }
             });// end on click

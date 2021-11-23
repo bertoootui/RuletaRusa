@@ -80,4 +80,40 @@
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toEndOf="@+id/butbullet"
         app:layout_constraintTop_toBottomOf="@+id/gifbang" />
+
+    <ImageView
+        android:id="@+id/imgbullet1"
+        android:layout_width="72dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/giftambor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/bullet" />
+
+    <ImageView
+        android:id="@+id/imgbullet2"
+        android:layout_width="72dp"
+        android:layout_height="45dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/giftambor"
+        app:layout_constraintStart_toEndOf="@+id/imgbullet1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563"
+        app:srcCompat="@drawable/bullet" />
+
+    <ImageView
+        android:id="@+id/imgbullet3"
+        android:layout_width="72dp"
+        android:layout_height="45dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/giftambor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgbullet2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563"
+        app:srcCompat="@drawable/bullet" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
