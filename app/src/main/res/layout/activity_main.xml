@@ -8,26 +8,34 @@
     android:backgroundTint="#090707"
     tools:context=".MainActivity">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gifbang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="168dp"
-        android:background="@drawable/bang"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></pl.droidsonroids.gif.GifImageView>
-
     <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/giftambor"
         android:layout_width="273dp"
         android:layout_height="203dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/tumblr_mfau84ynir1qdch9co1_500"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/giftsmoke"
+        android:layout_width="273dp"
+        android:layout_height="203dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/smoke"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/giftboom"
+        android:layout_width="273dp"
+        android:layout_height="203dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/explosion"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +61,7 @@
         android:id="@+id/butbullet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="156dp"
         android:background="#AAA7A7"
         android:backgroundTint="#AAA7A7"
         android:foregroundTint="#AAA7A7"
@@ -61,15 +69,15 @@
         android:text="@string/butadd"
         android:textColor="#4E342E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gifbang" />
+        app:layout_constraintTop_toBottomOf="@+id/giftambor" />
 
     <Button
         android:id="@+id/butready"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="156dp"
         android:background="#AAA7A7"
         android:backgroundTint="#AAA7A7"
         android:foregroundTint="#AAA7A7"
@@ -77,9 +85,9 @@
         android:text="@string/butready"
         android:textColor="#4E342E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toEndOf="@+id/butbullet"
-        app:layout_constraintTop_toBottomOf="@+id/gifbang" />
+        app:layout_constraintTop_toBottomOf="@+id/giftambor" />
 
     <ImageView
         android:id="@+id/imgbullet1"
@@ -115,5 +123,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.563"
         app:srcCompat="@drawable/bullet" />
+
+    <ImageButton
+        android:id="@+id/butpistol"
+        android:layout_width="159dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/pistol"
+        android:clickable="false"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pistol" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

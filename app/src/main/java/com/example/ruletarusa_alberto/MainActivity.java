@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private int bullets [] = new int[5];
     Timer t = null;
     static int countb = 0;
+    static int shots = 0;
     ObjectAnimator animator = null ;
     Thread i = null;
     @Override
@@ -42,12 +43,16 @@ public class MainActivity extends AppCompatActivity {
         ImageButton bullet = findViewById(R.id.imageButton2);
         Button butbullet = findViewById(R.id.butbullet);
         ImageView cargador = findViewById(R.id.giftambor);
-        ImageView disparo = findViewById(R.id.gifbang);
+
         ImageView bullet1 = findViewById(R.id.imgbullet1);
         ImageView bullet2 = findViewById(R.id.imgbullet2);
         ImageView bullet3 = findViewById(R.id.imgbullet3);
         Button butready = findViewById(R.id.butready);
-        butready.setClickable(false);
+        ImageButton butpistol = findViewById(R.id.butpistol);
+
+        ImageView smoke = findViewById(R.id.giftsmoke);
+        ImageView boom = findViewById(R.id.giftboom);
+        final boolean[] b = {false};
         bullet.setX(100);
         bullet.setY(100);
         bullet.setVisibility(View.INVISIBLE);
@@ -97,18 +102,51 @@ public class MainActivity extends AppCompatActivity {
             butready.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (countb > 0) cargador.setVisibility(View.VISIBLE);
+                    if (countb > 0){ cargador.setVisibility(View.VISIBLE); b[0] = true;}
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
                             cargador.setVisibility(View.INVISIBLE);
+
                         }
                     }, 2000);   //5 second
 
-
-
                 }
             });
+            butpistol.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (b[0]) {
+                        if (bullets[shots] == 1) {
+                            smoke.setVisibility(View.VISIBLE);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                public void run() {
+                                    smoke.setVisibility(View.INVISIBLE);
+                                }
+                            }, 2000);   //5 second
+
+                        } else {
+                            boom.setVisibility(View.VISIBLE);
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                public void run() {
+                                    boom.setVisibility(View.INVISIBLE);
+                                }
+
+                            }, 2000);
+
+
+                        }
+
+
+                        shots++;
+
+                    }
+                }
+            });
+
+
 
 
     }
