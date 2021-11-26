@@ -26,11 +26,15 @@ import java.util.TimerTask;
 import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
-    private int bullets [] = new int[5];
+    private final int[] bullets = new int[5];
     Timer t = null;
     static int countb = 0;
     static int shots = 0;
+    private ImageView bullet1;
+    private ImageView bullet2;
+    private ImageView bullet3;
     ObjectAnimator animator = null ;
+    final boolean[] b = {false};
     Thread i = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +47,15 @@ public class MainActivity extends AppCompatActivity {
         ImageButton bullet = findViewById(R.id.imageButton2);
         Button butbullet = findViewById(R.id.butbullet);
         ImageView cargador = findViewById(R.id.giftambor);
-
-        ImageView bullet1 = findViewById(R.id.imgbullet1);
-        ImageView bullet2 = findViewById(R.id.imgbullet2);
-        ImageView bullet3 = findViewById(R.id.imgbullet3);
+        bullet1 = findViewById(R.id.imgbullet1);
+        bullet2 = findViewById(R.id.imgbullet2);
+        bullet3 = findViewById(R.id.imgbullet3);
         Button butready = findViewById(R.id.butready);
         ImageButton butpistol = findViewById(R.id.butpistol);
 
         ImageView smoke = findViewById(R.id.giftsmoke);
         ImageView boom = findViewById(R.id.giftboom);
-        final boolean[] b = {false};
+
         bullet.setX(100);
         bullet.setY(100);
         bullet.setVisibility(View.INVISIBLE);
@@ -136,9 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
                             }, 2000);
 
-
+                            Restart();
                         }
-
 
                         shots++;
 
@@ -151,7 +153,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void Restart() {
 
+        bullet1.setVisibility(View.INVISIBLE);
+        bullet2.setVisibility(View.INVISIBLE);
+        bullet3.setVisibility(View.INVISIBLE);
+        b[0] = false;
+        for (int i = 0; i < 5; i++) {
+            bullets[i] = 1;
+
+        }
+        countb = 0;
+
+    }
 
 
 }
