@@ -2,4 +2,8 @@
     <string name="app_name">RuletaRusa_Alberto</string>
     <string name="butadd">INTRODUCIR BALA</string>
     <string name="butready">LISTO</string>
+    <string name="dialog_message">Desea volver a empezar?</string>
+    <string name="dialog_title">HAS MUERTOOOOO!!!!!!</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.ruletarusa_alberto;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     private ImageView bullet1;
     private ImageView bullet2;
     private ImageView bullet3;
+    private ImageView live;
+    private ImageView live1;
+    private ImageView live2;
+    private int lives = 0;
     ObjectAnimator animator = null ;
     final boolean[] b = {false};
     Thread i = null;
@@ -50,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         bullet1 = findViewById(R.id.imgbullet1);
         bullet2 = findViewById(R.id.imgbullet2);
         bullet3 = findViewById(R.id.imgbullet3);
+        live = findViewById(R.id.imglive);
+        live1= findViewById(R.id.imglive1);
+        live2 = findViewById(R.id.imglive2);
         Button butready = findViewById(R.id.butready);
         ImageButton butpistol = findViewById(R.id.butpistol);
 
@@ -138,7 +146,8 @@ public class MainActivity extends AppCompatActivity {
                                 }
 
                             }, 2000);
-
+                            lives++;
+                            checkLives();
                             Restart();
                         }
 
@@ -149,6 +158,40 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
+
+
+    }
+
+    private void checkLives() {
+
+        if(lives == 1) live.setVisibility(View.INVISIBLE);
+        else if (lives == 2) live1.setVisibility(View.INVISIBLE);
+        else if(lives == 3){
+
+            live2.setVisibility(View.INVISIBLE);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setMessage(R.string.dialog_message)
+                    .setTitle(R.string.dialog_title);
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    Restart();
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    finish();
+
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+
+
+
+        }
 
 
     }
@@ -164,6 +207,15 @@ public class MainActivity extends AppCompatActivity {
 
         }
         countb = 0;
+        if (lives ==3)
+        {
+            live.setVisibility(View.VISIBLE);
+            live1.setVisibility(View.VISIBLE);
+            live2.setVisibility(View.VISIBLE);
+            lives = 0;
+
+        }
+
 
     }
 
